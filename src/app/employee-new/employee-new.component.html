@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" name="name" id="" class="form-control" [(ngModel)]="employee.name">
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">    
+        <label for="salary">Salario</label>
+        <input type="text" id="" class="form-control" [(ngModel)]="employee.salary">
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+        <span *ngIf="employee.salary<1000">
+            <label for="salary" name="salary">Bonus</label>
+            <input type="text" name="bonus" id="" class="form-control" [(ngModel)]="employee.bonus" name="salary">
+        </span>
+    </div>
+</div>
+<div class="row">
+    <button type="button" (click)="addEmployee()" class="btn btn-success">Adicionar</button>
+</div>
