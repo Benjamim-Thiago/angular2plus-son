@@ -10,18 +10,12 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of employeeService.employees; let i=index;" [id]="'tr' + i">
-                <td>{{item.name}}</td>
-                <!--<td [innerHtml] = "item.salary" [style.color]="getSalaryColor(item)">
-
-                </td>-->
-                <td [innerHtml] = "item.salary" 
-                    [ngClass]="{'salary-expensive': item.salary>20000,
-                    'salary-cheap': item.salary<1000}"> 
-                </td>
-
+                <td [innerHtml] = "item.name"></td>
+                <td [innerHtml] = "item.salary" salaryColor="{{ item.salary }}"></td>
                 <td [innerHtml] = "item.bonus"></td>
             </tr>
         </tbody>
     </table>
     
 </div>
+<employee-new-modal></employee-new-modal>
