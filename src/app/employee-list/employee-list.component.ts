@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {EmployeeService} from '../employee.service';
+import { EmployeeNewModalComponent } from '../employee-new-modal/employee-new-modal.component';
 
 @Component({
   selector: 'employee-list',
@@ -8,14 +9,16 @@ import {EmployeeService} from '../employee.service';
 })
 export class EmployeeListComponent implements OnInit {
 
-  //employees = employees
+  @ViewChild(EmployeeNewModalComponent, {static: false})//pegar a referencia de um elemento
+  employeeNewModal: EmployeeNewModalComponent;
+
   constructor(public employeeService: EmployeeService) { }
 
   ngOnInit() {
   }
 
-  getSalaryColor(item){
-    return item.salary > 20000? 'green' : null;
+  openNewModal(){
+    this.employeeNewModal.show();
   }
 
 }
