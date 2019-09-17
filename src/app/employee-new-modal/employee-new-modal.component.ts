@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Output, EventEmitter } from '@angular/core';
 import { Employee, EmployeeService } from '../employee.service';
 
 declare const $;
@@ -16,6 +16,9 @@ export class EmployeeNewModalComponent implements OnInit {
     bonus : 0
   }
   
+  @Output()
+  onSubmit: EventEmitter<Employee> = new EventEmitter<Employee>();
+
   constructor(private element: ElementRef, private employeeService: EmployeeService) { }
 
   ngOnInit() {
